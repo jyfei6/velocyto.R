@@ -1,4 +1,8 @@
 CXX_STD = CXX11
 PKG_CXXFLAGS= $(SHLIB_OPENMP_CXXFLAGS)
 PKG_CFLAGS=$(SHLIB_OPENMP_CFLAGS)
-PKG_LIBS=-lboost_filesystem -lboost_system -L/usr/local/Cellar/boost/1.83.0/lib -lstdc++ $(LAPACK_LIBS) $(BLAS_LIBS) $(SHLIB_OPENMP_CFLAGS) $(FLIBS) -L/usr/local/Cellar/gcc/13.2.0/lib/gcc/13
+# Library flags
+PKG_LIBS = -lboost_filesystem -lboost_system -lstdc++ $(LAPACK_LIBS) $(BLAS_LIBS) $(SHLIB_OPENMP_CFLAGS) $(FLIBS)
+
+# Additional library and directory paths
+PKG_LIBS += -L/usr/local/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin22/13/../../../ -lgfortran -lemutls_w
